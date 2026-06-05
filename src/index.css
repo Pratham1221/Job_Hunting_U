@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 20% 98%;
+    --foreground: 220 15% 15%;
+    
+    --primary: 192 91% 36%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 14 90% 60%;
+    --secondary-foreground: 0 0% 100%;
+    
+    --accent: 192 70% 85%;
+    --accent-foreground: 192 91% 20%;
+    
+    --muted: 30 10% 95%;
+    --muted-foreground: 220 10% 40%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 15%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 15%;
+    
+    --border: 30 15% 88%;
+    --input: 30 15% 88%;
+    --ring: 192 91% 36%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --radius: 0.75rem;
+    
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Plan Tier Tokens */
+    --tier-mastermind: 192 91% 96%;
+    --tier-mastermind-foreground: 192 91% 20%;
+    
+    --tier-vip: 270 50% 96%;
+    --tier-vip-foreground: 270 50% 20%;
+    
+    --tier-community: 14 90% 96%;
+    --tier-community-foreground: 14 90% 20%;
+  }
+  
+  .dark {
+    --background: 220 20% 8%;
+    --foreground: 30 10% 95%;
+    
+    --primary: 192 85% 45%;
+    --primary-foreground: 220 20% 8%;
+    
+    --secondary: 14 85% 55%;
+    --secondary-foreground: 220 20% 8%;
+    
+    --accent: 192 50% 25%;
+    --accent-foreground: 192 70% 85%;
+    
+    --muted: 220 15% 15%;
+    --muted-foreground: 30 8% 60%;
+    
+    --card: 220 18% 12%;
+    --card-foreground: 30 10% 95%;
+    
+    --popover: 220 18% 12%;
+    --popover-foreground: 30 10% 95%;
+    
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 192 85% 45%;
+    
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Plan Tier Tokens */
+    --tier-mastermind: 192 91% 10%;
+    --tier-mastermind-foreground: 192 91% 90%;
+    
+    --tier-vip: 270 50% 10%;
+    --tier-vip-foreground: 270 50% 90%;
+    
+    --tier-community: 14 90% 10%;
+    --tier-community-foreground: 14 90% 90%;
+  }
+  
+  * {
+    border-color: hsl(var(--border));
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: "DM Sans", sans-serif;
+    overflow-x: clip;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-variant-numeric: tabular-nums;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+  }
+  
+  p {
+    max-width: 65ch;
+  }
+}
+
+@layer components {
+  .section-container {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  @media (min-width: 640px) {
+    .section-container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .section-container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+  
+  .hero-overlay {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 100%);
+  }
+  
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Plan Service Cards Styles */
+  .plan-card {
+    @apply relative overflow-hidden rounded-2xl border-none shadow-lg p-6 sm:p-8 transition-all duration-300 flex flex-col h-full;
+  }
+
+  .card-mastermind {
+    background-color: hsl(var(--tier-mastermind));
+    color: hsl(var(--tier-mastermind-foreground));
+  }
+  .badge-mastermind {
+    background-color: hsl(var(--tier-mastermind-foreground) / 0.1);
+    color: hsl(var(--tier-mastermind-foreground));
+  }
+  
+  .card-vip {
+    background-color: hsl(var(--tier-vip));
+    color: hsl(var(--tier-vip-foreground));
+    box-shadow: 0 0 0 2px hsl(var(--tier-vip-foreground) / 0.3), 0 20px 25px -5px rgb(0 0 0 / 0.1);
+  }
+  .badge-vip {
+    background-color: hsl(var(--tier-vip-foreground));
+    color: hsl(var(--tier-vip));
+  }
+  
+  .card-community {
+    background-color: hsl(var(--tier-community));
+    color: hsl(var(--tier-community-foreground));
+    border: 2px dashed hsl(var(--tier-community-foreground) / 0.2);
+  }
+  .badge-community {
+    background-color: hsl(var(--tier-community-foreground) / 0.1);
+    color: hsl(var(--tier-community-foreground));
+  }
+
+  .plan-badge {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider;
+  }
+  
+  .plan-cta {
+    @apply mt-auto pt-8 w-full;
+  }
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .shadow-brand {
+    box-shadow: 0 10px 40px -10px hsl(var(--primary) / 0.2);
+  }
+  
+  .shadow-brand-lg {
+    box-shadow: 0 20px 60px -15px hsl(var(--primary) / 0.3);
+  }
+}

@@ -137,7 +137,7 @@ const HomePage = () => {
               </Link>
             </Button>
 
-            <Button asChild size="lg" variant="outline">
+            <Button asChild size="lg" variant="ghost">
               <Link to="/about">Learn More</Link>
             </Button>
           </motion.div>

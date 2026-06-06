@@ -251,9 +251,9 @@ const ContactPage = () => {
                         <SelectValue placeholder="Select a service tier" />
                       </SelectTrigger>
                       <SelectContent>
+                        <SelectItem value="Community Hub">The Community Hub (Coming Soon)</SelectItem>
                         <SelectItem value="Mastermind">The Mastermind (Done With You)</SelectItem>
                         <SelectItem value="VIP Tier">The VIP Tier (Done For You)</SelectItem>
-                        <SelectItem value="Community Hub">The Community Hub (Coming Soon)</SelectItem>
                         <SelectItem value="Not Sure">Not Sure Yet</SelectItem>
                       </SelectContent>
                     </Select>

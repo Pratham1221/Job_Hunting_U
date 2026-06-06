@@ -22,6 +22,25 @@ const ServicesPage = () => {
 
   const services = [
     {
+      id: 'community',
+      icon: TrendingUp,
+      title: 'The Community Hub',
+      subtitle: 'Coming June 27th!',
+      description: 'Accessible expert guidance at a fraction of the cost. Join our Skool community to ask questions, engage with peers, and watch step-by-step courses on mastering the modern job hunt.',
+      features: [
+        'Expert Q&A',
+        'Peer community',
+        'Step-by-step courses',
+        'Affordable pricing'
+      ],
+      comingSoon: true,
+      themeClass: 'card-community',
+      badgeClass: 'badge-community',
+      buttonText: 'Book a Discovery Call',
+      buttonVariant: 'outline',
+      hoverEffect: 'hover:-translate-y-1 hover:shadow-lg opacity-90 hover:opacity-100'
+    },
+    {
       id: 'mastermind',
       icon: Users,
       title: 'The Mastermind',
@@ -35,7 +54,7 @@ const ServicesPage = () => {
       ],
       themeClass: 'card-mastermind',
       badgeClass: 'badge-mastermind',
-      buttonText: 'Get Started',
+      buttonText: 'Book a Discovery Call',
       buttonVariant: 'outline',
       hoverEffect: 'hover:-translate-y-2 hover:shadow-xl'
     },
@@ -55,28 +74,9 @@ const ServicesPage = () => {
       featured: true,
       themeClass: 'card-vip',
       badgeClass: 'badge-vip',
-      buttonText: 'Get Started',
+      buttonText: 'Book a Discovery Call',
       buttonVariant: 'default',
       hoverEffect: 'hover:-translate-y-2 hover:shadow-2xl scale-100 lg:scale-105 z-10'
-    },
-    {
-      id: 'community',
-      icon: TrendingUp,
-      title: 'The Community Hub',
-      subtitle: 'Coming June 27th!',
-      description: 'Accessible expert guidance at a fraction of the cost. Join our Skool community to ask questions, engage with peers, and watch step-by-step courses on mastering the modern job hunt.',
-      features: [
-        'Expert Q&A',
-        'Peer community',
-        'Step-by-step courses',
-        'Affordable pricing'
-      ],
-      comingSoon: true,
-      themeClass: 'card-community',
-      badgeClass: 'badge-community',
-      buttonText: 'Join the Waitlist',
-      buttonVariant: 'outline',
-      hoverEffect: 'hover:-translate-y-1 hover:shadow-lg opacity-90 hover:opacity-100'
     }
   ];
 

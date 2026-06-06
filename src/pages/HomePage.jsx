@@ -6,14 +6,12 @@ import {
   ArrowRight,
   Users,
   Sparkles,
-  Bot,
-  Target,
   TrendingUp,
   CheckCircle2,
 } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 
 const HomePage = () => {
@@ -30,43 +28,35 @@ const HomePage = () => {
     { label: 'Offer success rate (VIP)', value: '78%' },
   ];
 
-  const features = [
-    {
-      icon: Bot,
-      title: 'AI-Powered Job Search System',
-      description:
-        'Automatically optimize resumes, tailor applications, and identify high-conversion job postings using AI workflows.',
-    },
-    {
-      icon: Users,
-      title: 'Community Accountability',
-      description:
-        'Stay consistent with structured peer groups, expert feedback, and daily momentum tracking.',
-    },
-    {
-      icon: Target,
-      title: 'Interview-First Strategy',
-      description:
-        'We reverse-engineer your job search starting from interviews, not applications.',
-    },
-  ];
-
   const servicesPreview = [
     {
-      icon: Users,
-      title: 'Mastermind',
-      desc: 'Done-with-you coaching, AI tools, resume + interview systems.',
-    },
-    {
-      icon: Sparkles,
-      title: 'VIP Tier',
-      desc: 'Fully done-for-you job search automation + outreach.',
-    },
-    {
+      id: 'community',
       icon: TrendingUp,
-      title: 'Community',
-      desc: 'Skool-based community + courses + peer accountability.',
+      title: 'The Community Hub',
+      subtitle: 'Coming June 27th!',
+      description: 'Join our exclusive Skool community. Access expert guidance and engage with peers.',
+      themeClass: 'card-community',
+      badgeClass: 'badge-community',
     },
+    {
+      id: 'mastermind',
+      icon: Users,
+      title: 'The Mastermind',
+      subtitle: 'Done With You',
+      description: 'Collaborative training where we teach you cutting-edge AI tools for your job search.',
+      themeClass: 'card-mastermind',
+      badgeClass: 'badge-mastermind',
+    },
+    {
+      id: 'vip',
+      icon: Sparkles,
+      title: 'The VIP Tier',
+      subtitle: 'Done For You',
+      description: 'Our premium white-glove service. We build and manage your automated backend systems.',
+      featured: true,
+      themeClass: 'card-vip',
+      badgeClass: 'badge-vip',
+    }
   ];
 
   const testimonials = [
@@ -104,13 +94,18 @@ const HomePage = () => {
       </Helmet>
 
       {/* HERO */}
-      <section className="relative min-h-[90vh] flex items-center justify-center bg-black text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d')] bg-cover bg-center opacity-40" />
+      <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1521737604893-d14cc237f11d)' }}
+        />
+        <div className="hero-overlay absolute inset-0" />
 
-        <div className="relative z-10 text-center max-w-4xl px-6">
+        <div className="section-container relative z-10 text-center text-white pt-20">
           <motion.h1
             {...fadeUp}
-            className="text-4xl md:text-6xl font-bold leading-tight"
+            className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight mb-6"
+            style={{ letterSpacing: '-0.02em' }}
           >
             Stop applying blindly.
             <br />
@@ -120,7 +115,7 @@ const HomePage = () => {
           <motion.p
             {...fadeUp}
             transition={{ delay: 0.2 }}
-            className="mt-6 text-lg text-white/80"
+            className="text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mb-8 text-white/90"
           >
             JobHuntingU combines AI automation + coaching + community to
             transform your job search into a structured system that actually works.
@@ -145,143 +140,196 @@ const HomePage = () => {
       </section>
 
       {/* STATS */}
-      <section className="py-16 bg-muted">
-        <div className="section-container grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <section className="py-20 bg-muted/30">
+        <div className="section-container grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {stats.map((s, i) => (
-            <div key={i}>
-              <p className="text-2xl font-bold">{s.value}</p>
-              <p className="text-sm text-muted-foreground">{s.label}</p>
-            </div>
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+            >
+              <p className="text-3xl md:text-4xl font-bold mb-2">{s.value}</p>
+              <p className="text-sm md:text-base text-muted-foreground font-medium">{s.label}</p>
+            </motion.div>
           ))}
         </div>
       </section>
 
       {/* PROBLEM / VALUE */}
-      <section className="py-20 bg-background">
-        <div className="section-container grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-3xl font-bold mb-4">
+      <section className="py-24 bg-background">
+        <div className="section-container grid lg:grid-cols-2 gap-16 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-8">
               The job search is broken.
             </h2>
-            <p className="text-muted-foreground leading-relaxed mb-4">
-              Most candidates waste months sending resumes into a black hole.
-              No feedback. No strategy. No system.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              We fix that by turning your job search into a repeatable,
-              AI-assisted pipeline that focuses on outcomes—not effort.
-            </p>
-          </div>
+            <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+              <p>
+                Most candidates waste months sending resumes into a black hole.
+                No feedback. No strategy. No system. The modern job search is exhausting, isolating, and fraught with rejection.
+              </p>
+              <p>
+                We fix that by turning your job search into a repeatable,
+                AI-assisted pipeline that focuses on outcomes—not effort. We combine high-energy community support with cutting-edge AI strategies to help you land your dream role, faster.
+              </p>
+            </div>
+          </motion.div>
 
-          <Card className="p-6">
-            <CardTitle className="mb-4">What changes with us</CardTitle>
-            <ul className="space-y-3">
-              {[
-                'Fewer applications, higher quality',
-                'Interview-first targeting strategy',
-                'AI-assisted resume optimization',
-                'Clear weekly execution system',
-              ].map((item) => (
-                <li key={item} className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-green-500" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </Card>
-        </div>
-      </section>
-
-      {/* FEATURES */}
-      <section className="py-20 bg-muted">
-        <div className="section-container text-center mb-12">
-          <h2 className="text-3xl font-bold">Your job search, rebuilt</h2>
-        </div>
-
-        <div className="section-container grid md:grid-cols-3 gap-6">
-          {features.map((f, i) => {
-            const Icon = f.icon;
-            return (
-              <Card key={i}>
-                <CardHeader>
-                  <Icon className="w-6 h-6 mb-2" />
-                  <CardTitle>{f.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="text-muted-foreground">
-                  {f.description}
-                </CardContent>
-              </Card>
-            );
-          })}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <Card className="p-8 border-none shadow-2xl bg-muted/20">
+              <CardTitle className="text-2xl font-bold mb-6">What changes with us</CardTitle>
+              <ul className="space-y-4">
+                {[
+                  'Fewer applications, higher quality',
+                  'Interview-first targeting strategy',
+                  'AI-assisted resume optimization',
+                  'Clear weekly execution system',
+                  'Peer community accountability',
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-4 text-lg font-medium">
+                    <CheckCircle2 className="w-6 h-6 text-primary shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </Card>
+          </motion.div>
         </div>
       </section>
 
       {/* SERVICES PREVIEW */}
-      <section className="py-20 bg-background">
-        <div className="section-container text-center mb-12">
-          <h2 className="text-3xl font-bold">Choose your path</h2>
-        </div>
+      <section className="py-24 bg-muted/50">
+        <div className="section-container">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold leading-tight mb-4">
+              Your job search, rebuilt.
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Choose the pathway that fits your goals. From collaborative training to white-glove automation.
+            </p>
+          </div>
 
-        <div className="section-container grid md:grid-cols-3 gap-6">
-          {servicesPreview.map((s, i) => {
-            const Icon = s.icon;
-            return (
-              <Card key={i} className="text-center">
-                <CardContent className="pt-6">
-                  <Icon className="mx-auto mb-4 w-8 h-8" />
-                  <h3 className="font-semibold text-lg">{s.title}</h3>
-                  <p className="text-sm text-muted-foreground mt-2">
-                    {s.desc}
-                  </p>
-                </CardContent>
-              </Card>
-            );
-          })}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+            {servicesPreview.map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <motion.div
+                  key={service.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className={`flex flex-col h-full transition-all duration-300 hover:-translate-y-2`}
+                >
+                  <div className={`plan-card ${service.themeClass} flex-grow p-8 rounded-2xl flex flex-col`}>
+                    <div className="flex items-start justify-between mb-6">
+                      <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm">
+                        <Icon className="h-6 w-6" />
+                      </div>
+                      {service.featured && (
+                        <span className={`plan-badge ${service.badgeClass} text-xs font-bold uppercase tracking-wider`}>
+                          Recommended
+                        </span>
+                      )}
+                    </div>
+                    
+                    <h3 className="text-2xl font-bold mb-1">{service.title}</h3>
+                    <p className="text-sm font-semibold mb-4 opacity-90 uppercase tracking-wide">{service.subtitle}</p>
+                    
+                    <p className="text-base leading-relaxed mb-8 opacity-90 flex-grow">
+                      {service.description}
+                    </p>
+                    
+                    <div className="mt-auto">
+                      <Button asChild variant="outline" className="w-full">
+                        <Link to="/contact">
+                          Book a Discovery Call <ArrowRight className="ml-2 h-4 w-4" />
+                        </Link>
+                      </Button>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="py-20 bg-muted">
-        <div className="section-container text-center mb-12">
-          <h2 className="text-3xl font-bold">Real results</h2>
-        </div>
+      <section className="py-24 bg-background overflow-hidden">
+        <div className="section-container">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold leading-tight mb-4">
+              Real success stories
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              See how our system has transformed the careers of job seekers across different industries.
+            </p>
+          </div>
 
-        <div className="section-container grid md:grid-cols-3 gap-6">
-          {testimonials.map((t, i) => (
-            <Card key={i}>
-              <CardContent className="pt-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <Avatar>
-                    <AvatarFallback>{t.avatar}</AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <p className="font-semibold">{t.name}</p>
-                    <p className="text-xs text-muted-foreground">{t.role}</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((t, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+              >
+                <Card className="h-full p-8 border-none bg-muted/30 hover:bg-muted/50 transition-colors duration-300">
+                  <div className="flex items-center gap-4 mb-6">
+                    <Avatar className="h-12 w-12 border-2 border-primary/20">
+                      <AvatarFallback className="bg-primary/10 text-primary font-bold">{t.avatar}</AvatarFallback>
+                    </Avatar>
+                    <div>
+                      <p className="font-bold text-lg leading-tight">{t.name}</p>
+                      <p className="text-sm text-muted-foreground font-medium">{t.role}</p>
+                    </div>
                   </div>
-                </div>
-                <p className="text-sm italic">"{t.quote}"</p>
-              </CardContent>
-            </Card>
-          ))}
+                  <p className="text-lg leading-relaxed italic text-foreground/80">
+                    "{t.quote}"
+                  </p>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-primary text-primary-foreground text-center">
-        <div className="section-container">
-          <h2 className="text-3xl font-bold mb-4">
-            Ready to change your job search?
-          </h2>
-          <p className="mb-8 text-primary-foreground/80 max-w-xl mx-auto">
-            Join JobHuntingU and turn your job hunt into a structured system that
-            actually gets results.
-          </p>
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-primary" />
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10" />
+        
+        <div className="section-container relative z-10 text-center text-primary-foreground">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              Ready to change your job search?
+            </h2>
+            <p className="text-xl mb-10 text-primary-foreground/90 max-w-2xl mx-auto font-medium">
+              Join JobHuntingU and turn your job hunt into a structured system that
+              actually gets results.
+            </p>
 
-          <Button asChild size="lg" className="bg-secondary text-black">
-            <Link to="/contact">
-              Start Now <ArrowRight className="ml-2 w-4 h-4" />
-            </Link>
-          </Button>
+            <Button asChild size="lg" className="bg-secondary text-black">
+              <Link to="/contact">
+                Start Now <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
+            </Button>
+          </motion.div>
         </div>
       </section>
     </>

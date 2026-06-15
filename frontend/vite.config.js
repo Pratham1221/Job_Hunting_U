@@ -290,7 +290,7 @@ export default defineConfig({
 	},
 	customLogger: logger,
 	plugins: [
-		...(isDev ? [inlineEditPlugin(), editModeDevPlugin(), selectionModePlugin(), iframeRouteRestorationPlugin(), pocketbaseAuthPlugin()] : []),
+		...(isDev ? [inlineEditPlugin(), editModeDevPlugin(), selectionModePlugin(), iframeRouteRestorationPlugin()] : []),
 		react(),
 		addTransformIndexHtml
 	],
@@ -308,8 +308,15 @@ export default defineConfig({
 			strict: true,
 			allow: [
 				path.resolve(__dirname),
-				path.join(path.resolve(__dirname, '../..'), 'node_modules'),
+				path.join(path.resolve(__dirname, '..'), 'node_modules'), // Corrected path to monorepo root node_modules
 			],
+		},
+		proxy: {
+			'/api': {
+				target: 'http://localhost:3001',
+				changeOrigin: true,
+				rewrite: (path) => path.replace(/^\/api/, ''),
+			},
 		},
 	},
 	resolve: {

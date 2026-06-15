@@ -11,7 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { useToast } from '@/hooks/use-toast';
-import pb from '@/lib/pocketbaseClient';
+import apiClient from '@/lib/apiClient';
 
 const ContactPage = () => {
   const { toast } = useToast();
@@ -87,7 +87,7 @@ const ContactPage = () => {
     setIsSubmitting(true);
 
     try {
-      await pb.collection('discovery_calls').create(formData, { $autoCancel: false });
+      await apiClient.post('/discovery_calls', formData);
       
       toast({
         title: "Request Submitted!",

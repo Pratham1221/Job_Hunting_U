@@ -15,7 +15,7 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { name: 'LinkedIn', icon: Linkedin, url: 'https://linkedin.com' },
+    { name: 'LinkedIn', icon: Linkedin, url: 'https://www.linkedin.com/company/job-hunting-university/' },
     { name: 'Twitter', icon: Twitter, url: 'https://twitter.com' },
     { name: 'Instagram', icon: Instagram, url: 'https://instagram.com' },
   ];

@@ -87,7 +87,15 @@ const ContactPage = () => {
     setIsSubmitting(true);
 
     try {
-      await apiClient.post('/discovery_calls', formData);
+      await apiClient.post('/api/contact', {
+        full_name: formData.fullName,
+        email: formData.email,
+        phone: formData.phoneNumber,
+        job_title: formData.jobTitle,
+        service: formData.serviceInterest,
+        preferred_contact: formData.preferredContactMethod.toLowerCase(),
+        message: formData.message
+      });
       
       toast({
         title: "Request Submitted!",

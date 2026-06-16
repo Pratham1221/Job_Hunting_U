@@ -1,12 +1,21 @@
 const express = require('express');
 const cors = require('cors');
-require('dotenv').config();
+// require('dotenv').config();
+const path = require('path');
+require('dotenv').config({
+  path: path.resolve(__dirname, '../.env')
+});
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 const pool = require('./config/db');
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    'https://jobhuntingu.com',
+    'https://www.jobhuntingu.com'
+  ]
+}));
 app.use(express.json());
 
 app.get('/', (req, res) => {

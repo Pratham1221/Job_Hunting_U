@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Loader2 } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Loader2, Facebook } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -339,8 +339,8 @@ const ContactPage = () => {
                     </div>
                     <div>
                       <p className="font-semibold text-foreground">Email Us</p>
-                      <a href="mailto:hello@jobhuntingu.com" className="text-muted-foreground hover:text-primary transition-colors">
-                        hello@jobhuntingu.com
+                      <a href="mailto:jerry@jobhuntingu.com" className="text-muted-foreground hover:text-primary transition-colors">
+                        jerry@jobhuntingu.com
                       </a>
                     </div>
                   </div>
@@ -351,8 +351,8 @@ const ContactPage = () => {
                     </div>
                     <div>
                       <p className="font-semibold text-foreground">Call Us</p>
-                      <a href="tel:+18005550199" className="text-muted-foreground hover:text-primary transition-colors">
-                        +1 (800) 555-0199
+                      <a href="tel:+16472028777" className="text-muted-foreground hover:text-primary transition-colors">
+                        +1 (647) 202-8777
                       </a>
                     </div>
                   </div>
@@ -364,7 +364,7 @@ const ContactPage = () => {
                     <div>
                       <p className="font-semibold text-foreground">Location</p>
                       <p className="text-muted-foreground">
-                        Vancouver, BC<br />Canada
+                        319 W Hastings St Vancouver, BC, Canada<br />Canada
                       </p>
                     </div>
                   </div>
@@ -374,15 +374,15 @@ const ContactPage = () => {
                 <div className="mt-8 pt-8 border-t">
                   <p className="font-semibold mb-4">Follow Our Journey</p>
                   <div className="flex space-x-4">
-                    <a href="#" aria-label="LinkedIn" className="bg-muted hover:bg-primary hover:text-primary-foreground text-muted-foreground p-3 rounded-full transition-all duration-200">
+                    <a href="https://www.linkedin.com/company/job-hunting-university/" aria-label="LinkedIn" className="bg-muted hover:bg-primary hover:text-primary-foreground text-muted-foreground p-3 rounded-full transition-all duration-200">
                       <Linkedin className="h-5 w-5" />
                     </a>
-                    <a href="#" aria-label="Twitter" className="bg-muted hover:bg-primary hover:text-primary-foreground text-muted-foreground p-3 rounded-full transition-all duration-200">
-                      <Twitter className="h-5 w-5" />
+                    <a href="https://www.facebook.com/JobHuntingU" aria-label="Facebook" className="bg-muted hover:bg-primary hover:text-primary-foreground text-muted-foreground p-3 rounded-full transition-all duration-200">
+                      <Facebook className="h-5 w-5" />
                     </a>
-                    <a href="#" aria-label="Instagram" className="bg-muted hover:bg-primary hover:text-primary-foreground text-muted-foreground p-3 rounded-full transition-all duration-200">
+                    {/* <a href="#" aria-label="Instagram" className="bg-muted hover:bg-primary hover:text-primary-foreground text-muted-foreground p-3 rounded-full transition-all duration-200">
                       <Instagram className="h-5 w-5" />
-                    </a>
+                    </a> */}
                   </div>
                 </div>
               </div>

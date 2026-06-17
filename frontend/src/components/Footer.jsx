@@ -1,8 +1,8 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '@/assets/Logo_1.png';
-import { Linkedin, Twitter, Instagram, Mail, Phone } from 'lucide-react';
+import logo from '@/assets/Logo_1.svg';
+import { Linkedin, Twitter, Instagram, Mail, Phone, Facebook } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -16,8 +16,9 @@ const Footer = () => {
 
   const socialLinks = [
     { name: 'LinkedIn', icon: Linkedin, url: 'https://www.linkedin.com/company/job-hunting-university/' },
-    { name: 'Twitter', icon: Twitter, url: 'https://twitter.com' },
-    { name: 'Instagram', icon: Instagram, url: 'https://instagram.com' },
+    // { name: 'Twitter', icon: Twitter, url: 'https://twitter.com' },
+    // { name: 'Instagram', icon: Instagram, url: 'https://instagram.com' },
+    { name: 'Facebook', icon: Facebook, url: 'https://www.facebook.com/JobHuntingU' }
   ];
 
   return (
@@ -59,18 +60,18 @@ const Footer = () => {
             <span className="text-sm font-semibold uppercase tracking-wider text-foreground">Get in Touch</span>
             <div className="space-y-3">
               <a
-                href="mailto:hello@jobhuntingu.com"
+                href="mailto:jerry@jobhuntingu.com"
                 className="flex items-center space-x-2 text-sm transition-colors duration-200 hover:text-foreground"
               >
                 <Mail className="h-4 w-4" />
-                <span>hello@jobhuntingu.com</span>
+                <span>jerry@jobhuntingu.com</span>
               </a>
               <a
-                href="tel:+16041234567"
+                href="tel:+1647202-8777"
                 className="flex items-center space-x-2 text-sm transition-colors duration-200 hover:text-foreground"
               >
                 <Phone className="h-4 w-4" />
-                <span>+1 (604) 123-4567</span>
+                <span>+1 (647) 202-8777</span>
               </a>
               <div className="flex space-x-4 pt-2">
                 {socialLinks.map((social) => {

@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import heroBg from "@/assets/hero-background.webp";
 import {
   ArrowRight,
   Users,
@@ -97,7 +98,7 @@ const HomePage = () => {
       <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1521737604893-d14cc237f11d)' }}
+          style={{ backgroundImage: `url(${heroBg})` }}
         />
         <div className="hero-overlay absolute inset-0" />
 

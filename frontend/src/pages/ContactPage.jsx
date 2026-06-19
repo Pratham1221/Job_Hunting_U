@@ -304,6 +304,25 @@ const ContactPage = () => {
                     </RadioGroup>
                   </div>
 
+                  <div className="pt-4 border-t">
+                    <div className="space-y-2 mb-4">
+                      <Label className="block text-base font-semibold text-primary">Complete Your Booking</Label>
+                      <p className="text-sm text-muted-foreground">
+                        To ensure we're fully prepared for your discovery call, please <span className="font-bold text-foreground">complete the form above</span> and <span className="font-bold text-foreground">select a time</span> on the calendar below. Once both are finished, click the button below to submit your request.
+                      </p>
+                    </div>
+                    <div className="bg-card rounded-xl overflow-hidden border">
+                      <iframe 
+                        src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2rpNGVZ2uM5hGbnYQl3vJbFqc9GDyOqb1k1ZBTF8doS2ifeuAA1ScBYupIFoMYeHdMGYZjAfJQ?gv=true" 
+                        style={{ border: 0 }} 
+                        width="100%" 
+                        height="600" 
+                        frameBorder="0"
+                        title="Google Calendar Appointment Scheduling"
+                      ></iframe>
+                    </div>
+                  </div>
+
                   <Button 
                     type="submit" 
                     className="w-full h-12 text-base font-semibold transition-all active:scale-[0.98]" 

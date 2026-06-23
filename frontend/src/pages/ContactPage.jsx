@@ -23,7 +23,8 @@ const ContactPage = () => {
     jobTitle: '',
     serviceInterest: '',
     message: '',
-    preferredContactMethod: 'Email'
+    preferredContactMethod: 'Email',
+    website: '' // Honeypot field
   });
   const [errors, setErrors] = useState({});
 
@@ -75,6 +76,27 @@ const ContactPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
+    // Honeypot check: if 'website' is filled, it's likely a bot
+    if (formData.website) {
+      console.warn("Honeypot filled. Bot detected.");
+      // Silently succeed to avoid alerting the bot
+      toast({
+        title: "Request Submitted!",
+        description: "We'll be in touch shortly to schedule your discovery call.",
+      });
+      setFormData({
+        fullName: '',
+        email: '',
+        phoneNumber: '',
+        jobTitle: '',
+        serviceInterest: '',
+        message: '',
+        preferredContactMethod: 'Email',
+        website: ''
+      });
+      return;
+    }
+
     if (!validateForm()) {
       toast({
         title: "Validation Error",
@@ -109,7 +131,8 @@ const ContactPage = () => {
         jobTitle: '',
         serviceInterest: '',
         message: '',
-        preferredContactMethod: 'Email'
+        preferredContactMethod: 'Email',
+        website: ''
       });
     } catch (error) {
       console.error("Submission error:", error);
@@ -196,6 +219,19 @@ const ContactPage = () => {
                 <h2 className="text-2xl font-bold mb-6">Request a Discovery Call</h2>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Honeypot field - hidden from users */}
+                  <div className="hidden" aria-hidden="true">
+                    <Label htmlFor="website">Website</Label>
+                    <Input 
+                      id="website" 
+                      name="website" 
+                      value={formData.website} 
+                      onChange={handleChange} 
+                      tabIndex="-1" 
+                      autoComplete="off" 
+                    />
+                  </div>
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <Label htmlFor="fullName">Full Name <span className="text-destructive">*</span></Label>

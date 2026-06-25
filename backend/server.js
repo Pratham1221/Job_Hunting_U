@@ -52,6 +52,53 @@ app.post('/api/contact', async (req, res) => {
 
     const [result] = await pool.execute(sql, values);
 
+    // Integrate with Systeme.io
+    try {
+      const systemeApiKey = process.env.SYSTEME_API_KEY;
+      if (systemeApiKey) {
+        // Split full_name into first and last name
+        const nameParts = (full_name || '').trim().split(/\s+/);
+        const firstName = nameParts[0] || '';
+        const lastName = nameParts.slice(1).join(' ') || '';
+
+        const systemeResponse = await fetch('https://api.systeme.io/api/contacts', {
+          method: 'POST',
+          headers: {
+            'X-API-Key': systemeApiKey,
+            'accept': 'application/json',
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify({
+            email: email,
+            fields: [
+              {
+                slug: 'first_name',
+                value: firstName
+              },
+              {
+                slug: 'surname',
+                value: lastName
+              },
+              {
+                "slug": "phone_number",
+                "value": phone || ''
+              }
+            ]
+          })
+        });
+
+        if (!systemeResponse.ok) {
+          const errorData = await systemeResponse.json();
+          console.error('Systeme.io API Error:', errorData);
+        } else {
+          console.log('Successfully synced to Systeme.io');
+        }
+      }
+    } catch (systemeErr) {
+      console.error('Failed to sync with Systeme.io:', systemeErr.message);
+      // We don't want to fail the whole request if Systeme.io sync fails
+    }
+
     res.json({
       success: true,
       id: result.insertId

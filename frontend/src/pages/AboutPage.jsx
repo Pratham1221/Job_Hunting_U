@@ -98,12 +98,15 @@ const AboutPage = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1637622124152-33adfabcc923)' }}
+      <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden bg-slate-900">
+        <img 
+          src="https://images.unsplash.com/photo-1637622124152-33adfabcc923"
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+          fetchPriority="high"
+          loading="eager"
         />
-        <div className="hero-overlay absolute inset-0 bg-black/60" />
+        <div className="hero-overlay absolute inset-0 bg-black/75" />
         
         <div className="section-container relative z-10 text-center text-white pt-20">
           <motion.h1 

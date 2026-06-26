@@ -95,12 +95,15 @@ const HomePage = () => {
       </Helmet>
 
       {/* HERO */}
-      <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroBg})` }}
+      <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden bg-slate-900">
+        <img 
+          src={heroBg}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+          fetchPriority="high"
+          loading="eager"
         />
-        <div className="hero-overlay absolute inset-0" />
+        <div className="hero-overlay absolute inset-0 bg-black/70" />
 
         <div className="section-container relative z-10 text-center text-white pt-20">
           <motion.h1
@@ -134,7 +137,7 @@ const HomePage = () => {
             </Button>
 
             <Button asChild size="lg" variant="ghost">
-              <Link to="/about">Learn More</Link>
+              <Link to="/about" aria-label="Learn more about JobHuntingU mission and team">Learn More</Link>
             </Button>
           </motion.div>
         </div>

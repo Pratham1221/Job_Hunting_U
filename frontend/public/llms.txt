@@ -1,4 +1,12 @@
+# JobHuntingU
+
+> AI-Powered Job Search System & Community
+
+## Summary
+JobHuntingU combines cutting-edge AI strategies with high-energy community support to help professionals land their dream roles faster. We offer personalized coaching, automated outreach systems, and a supportive ecosystem for job seekers.
+
 ## Pages
-- [JobHuntingU — AI-Powered Job Search System](/home): Land interviews faster with AI-powered job search systems, coaching, and automation.
-- [Untitled Page](/contact): Book a free discovery call with JobHuntingU to explore how our AI-powered strategies and community can help you land your dream role.
-- [Untitled Page](/services): Explore JobHuntingU
+- [Home](https://jobhuntingu.com/): Land interviews faster with AI-powered job search systems, coaching, and automation.
+- [About Us](https://jobhuntingu.com/about): Meet the team and learn about our mission to transform the job search experience.
+- [Services](https://jobhuntingu.com/services): Explore our service tiers, including the Community Hub, Mastermind, and VIP "Done For You" programs.
+- [Contact Us](https://jobhuntingu.com/contact): Book a free discovery call to discuss your career goals and how we can help.

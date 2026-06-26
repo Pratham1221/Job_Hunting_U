@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://jobhuntingu.com/sitemap.xml
+LLMS: https://jobhuntingu.com/llms.txt

@@ -8,6 +8,12 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
+import jerryImage from '../assets/Jerry Jay Hunter - Founder.webp';
+import ashishImage from '../assets/Ashish.webp';
+import hishaamImage from '../assets/Hishaam.webp';
+import amritImage from '../assets/Amrit.webp';
+import siriniImage from '../assets/sirini.webp';
+
 const AboutPage = () => {
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
@@ -48,32 +54,39 @@ const AboutPage = () => {
 
   const team = [
     {
-      name: 'Jerry J. Hunter',
-      title: 'CEO & Founder',
-      bio: 'Former corporate recruiter turned job search strategist. Jerry founded JobHuntingU after witnessing countless talented professionals struggle in silence. His mission: make job hunting less isolating and more effective.',
+      name: 'Jerry J Hunter',
+      title: 'Founder / CEO',
+      bio: 'A visionary career strategist who realized traditional career coaching was broken. After stepping away from the standard corporate model, Jerry founded JobHuntingU to prove a core truth: no one should job hunt alone. He is the architect behind our "secret" job-hunting frameworks, designed to turn ordinary candidates into highly sought-after talent.',
       avatar: 'JH',
-      image: '/jerry-hunter.webp'
+      image: jerryImage
     },
     {
-      name: 'Srini Kancharla',
+      name: 'Hishaam K Pathan',
+      title: 'Integrator / COO',
+      bio: 'An operations mastermind focused on translating high-level vision into flawless execution. Hishaam bridges our high-energy human coaching programs with robust backend automation. He keeps the company’s internal engine running seamlessly so that our members can focus entirely on acing their interviews and landing their dream jobs.',
+      avatar: 'HP',
+      image: hishaamImage
+    },
+    {
+      name: 'Sirini Kancharla',
       title: 'AI HR Business Partner',
-      bio: 'AI researcher and career coach specializing in automation and optimization. Anika designs the intelligent systems that power our job search tools.',
+      bio: 'A strategic HR specialist dedicated to bridging the gap between top talent and modern technology. Sirini leverages advanced AI resources to redefine the hiring, screening, and matching process, ensuring our candidates are always positioned perfectly in front of the right decision-makers.',
       avatar: 'SK',
-      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop'
+      image: siriniImage
     },
     {
-      name: 'Marcus Williams',
-      title: 'Community Director',
-      bio: 'Former HR leader with a passion for building supportive communities. Marcus ensures every member feels heard, valued, and motivated.',
-      avatar: 'MW',
-      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop'
-    },
-    {
-      name: 'Srini Kancharla',
+      name: 'Amrit Kaler',
       title: 'AI HR Business Partner',
-      bio: 'AI researcher and career coach specializing in automation and optimization. Anika designs the intelligent systems that power our job search tools.',
-      avatar: 'SK',
-      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop'
+      bio: 'A human resources innovator who champions our next generation of talent. Amrit leads and nurtures JobHuntingU\'s internship program, transforming eager learners into high-performing AI and marketing professionals. She acts as the primary mentor and operational guide, ensuring our interns get the hands-on, real-world tech experience that launches careers.',
+      avatar: 'AK',
+      image: amritImage
+    },
+    {
+      name: 'Ashish Dawar',
+      title: 'AI Automations Developer',
+      bio: 'A creative systems architect who looks at a manual, repetitive process and immediately builds a way to automate it. Ashish designs and deploys the intelligent workflows, powered by OpenClaw, and Airtable. That fuel our VIP "Done For You" engine and scale our clients\' outreach effort.',
+      avatar: 'AD',
+      image: ashishImage
     }
   ];
 
@@ -315,7 +328,7 @@ const AboutPage = () => {
                       <AvatarImage
                         src={member.image}
                         alt={member.name}
-                        className="object-cover"
+                        className="object-cover object-top"
                       />
                       <AvatarFallback className="bg-primary text-primary-foreground text-2xl rounded-2xl">
                         {member.avatar}
